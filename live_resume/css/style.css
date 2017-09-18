@@ -1,0 +1,166 @@
+
+div,
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  font-family: "Garamond", "Comic Sans", cursive;
+}
+
+body
+{
+background: #f7fbfc; 
+}
+
+.container-fluid {
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.header {
+    min-height: 100px;
+    background: #a2c3eb;
+    font-family: "Helvetica";
+    text-align: center;
+    margin-bottom: 150px;
+    border-radius: 10px;
+}
+
+.profile-pic {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 50%;
+    height: 30%;
+    width: 30%;
+}
+
+.name {
+    font-size: 500%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: black;
+    font-weight: 500;
+}
+
+.sub-name {
+    font-size:300%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-weight: 200;
+}
+
+.projects {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.project-list {
+    height: 750px;
+    margin-bottom: 100px;
+}
+
+.skills-list,
+.education,
+.experience,
+.map-area,
+.contact-me{
+    margin-bottom: 200px;
+}
+
+.map-area {
+    min-height: 500px;
+}
+
+.project-topic {
+    font-size: 250%;
+    text-align: left;
+}
+
+.section-title {
+    text-align: center;
+    font-family: Slabo;
+    font-size: 36pt;
+}
+
+.project-item {
+    height: 250px;
+    text-align: center;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.project-item:hover {
+    box-shadow: 0 0 4px 4px rgba(0, 140, 186, 0.5);
+}
+
+.project-item-img, 
+.education-img,
+.experience-img {
+    height: 200px;
+    width: 100%;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.project-item-text,
+.education-item-text,
+.experience-item-text {
+    text-align: center;
+    font-size: 14pt;
+}
+
+.skill-img {
+    border: 1px solid #ddd; /* Gray border */
+    border-radius: 10px;  /* Rounded border */
+    padding: 5px; /* Some padding */
+    margin: 2px;
+    width: 150px; 
+    height: 150px;
+}
+
+.skill-img:hover,
+.education-item:hover,
+.experience-item:hover,
+.project-topic:hover {
+    box-shadow: 0 0 4px 4px rgba(0, 140, 186, 0.5);
+}
+
+.education-item,
+.experience-item{
+    border-radius: 10px;
+}
+
+.active {
+    transform: rotateY(180deg);
+    box-shadow: -5px 5px 5px #aaa;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
