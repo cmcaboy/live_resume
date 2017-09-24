@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cory McAboy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <!--<script src="js/jQuery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/864d9800f0.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="css/style.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+      <div class="header">
+         <a class="social-links" href="https://www.facebook.com/cmcaboy">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+         </a>
+          <a class="social-links" href="https://www.linkedin.com/in/cmcaboy">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+         </a>
+          <a class="social-links" href="https://github.com/cmcaboy">
+            <i class="fa fa-github" aria-hidden="true"></i>
+         </a>
+          <a class="social-links" href="https://twitter.com/cmcaboy">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+         </a>
+      </div>      
+      <div class="container-fluid">
+        <div class = "row title">
+            <img src="img/cm_linkedin.jpg" alt="Profile Pic" class="profile-pic">
+            <h3 class="name">Cory McAboy</h3>
+            <h4 class="sub-name">Product Manager</h4>
+        </div>
+
+        <h3 class="section-title">Project Work</h3>
+        <hr>
+        <div class="row projects">
+            <div class="col-md-3 project-topic" data-bind="click: filterAll">All</div>
+            <div class="col-md-3 project-topic" data-bind="click: filterBusiness">Business</div>
+            <div class="col-md-3 project-topic" data-bind="click: filterAnalytics">Analytics</div>
+            <div class="col-md-3 project-topic" data-bind="click: filterDevelopment">Development</div>
+        </div>
+        <div class="row project-list" data-bind="foreach: projectsObservable">
+            <!-- ko if: type == 'modal' -->
+                <div class="project-item col-md-4" data-bind="visible: visible, click: toggleModal">
+                    <img class="img-responsive project-item-img" data-bind="attr:{src: img}" />
+                    <h5 data-bind="text: label" class="project-item-text"></h5>
+                    <div class="modal" data-bind="visible: modalDisplay">
+                        <div class="modal-content">
+                            <span class="closeBtn">&times;</span>
+                            <h3 data-bind="text: label"></h3>
+                            <embed data-bind="attr:{src: link}" type="application/pdf">
+                        </div>
+                    </div>
+                </div>
+            <!-- /ko -->
+            <!-- ko if: type == 'link' -->
+                <div class="project-item col-md-4" data-bind="visible: visible, click: openPage">
+                    <img class="img-responsive project-item-img" data-bind="attr:{src: img}" />
+                    <h5 data-bind="text: label" class="project-item-text"></h5>
+                </div>
+            <!-- /ko -->
+        </div>
+        <h3 class="section-title">Skills</h3>
+        <hr>
+        <div class="skills-list row" data-bind="foreach: skillsList">
+            <a data-bind="attr:{href:link}">
+                <img class="skill-img" data-bind="attr:{alt: label, src: img}">
+            </a>
+        </div>
+        <h3 class="section-title">Education</h3>
+        <hr>
+        <div class="row education" data-bind="foreach: educationList">
+            <div class="col-md-4 education-item" data-bind="click: showDetail">
+                <img class="education-img img-responsive" data-bind="attr:{alt: label, src: img}">
+                <h5 data-bind="text: label" class="education-item-text"></h5>
+            </div>
+        </div>
+        <h3 class="section-title">Experience</h3>
+        <hr>
+        <div class="row experience" data-bind="foreach: experienceList">
+            <div class="col-md-4 experience-item" data-bind="click: toggleModal">
+                <img class="experience-img img-responsive" data-bind="attr:{alt: label, src: img}">
+                <h5 data-bind="text: label" class="experience-item-text"></h5>
+                <div class="modal" data-bind="visible: modalDisplay">
+                        <div class="modal-experience">
+                            <span class="closeBtn">&times;</span>
+                            <h1 data-bind="text: label" class="modal-label"></h3>
+                            <h5 data-bind="text: description"></h5>
+                            <h5 data-bind="text: location"></h5>
+                            <h5 data-bind="text: years"></h5>
+                            <hr>
+                            <ul data-bind="foreach: roles" style="list-style:none">
+                                <li>
+                                    <h3 data-bind="text: role"class="modal-label"></h3>
+                                </li>
+                                <ul data-bind="foreach: responsibilities" style="list-style:disc">
+                                    <li style="margin-left: 30px">
+                                        <p data-bind="text: $data"></p>
+                                    </li>
+                                </ul>
+                            </ul>
+                        </div>
+                    </div>
+            </div>
+        </div>
+          <h3 class="section-title">Places I have <font color="blue">lived</font> and <font color="#3ED329">traveled</font></h3>
+        <hr>
+        <div class="map-area row" id="map"></div>
+        <h3 class="section-title">Contact Me</h3>
+        <hr>
+        <div class="contact-me">
+            <form method="POST" action="/contact/add">
+                <label class="contact-label">Name</label>
+                <input class="input-field" type="text" name="Name">
+                <br>
+                <label class="contact-label">Email</label>
+                <input class="input-field" type="text" name="email">
+                <br>
+                <label class="contact-label">Message</label><br>
+                <textarea class="input-field" id="message-input" type="text" name="message"></textarea>
+                <br><br>
+                <center><input class="contact-submit" type="submit" value="Submit"></center>
+            </form>  
+        </div>
+      </div>
+      <div class="footer">
+         <a class="social-links" href="https://www.facebook.com/cmcaboy">
+            <i class="fa fa-facebook" aria-hidden="true"></i>
+         </a>
+          <a class="social-links" href="https://www.linkedin.com/in/cmcaboy">
+            <i class="fa fa-linkedin" aria-hidden="true"></i>
+         </a>
+          <a class="social-links" href="https://github.com/cmcaboy">
+            <i class="fa fa-github" aria-hidden="true"></i>
+         </a>
+          <a class="social-links" href="https://twitter.com/cmcaboy">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+         </a>
+      </div>
+    <script src="js/knockout-3.4.2.js"></script>
+    <script src="js/app.js"></script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlVUE0QmItEkmjVUBLhkb3ShhebQMJUdA&callback=initMap" onerror="googleMapError()">
+    </script>
+  </body>
+</html>
